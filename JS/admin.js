@@ -17,7 +17,7 @@ const users = []; // tableau des utilisateurs
     // Réinitialiser les messages
     document.getElementById("nomError").textContent = "";
     document.getElementById("prenomError").textContent = "";
-    document.getElementById("emailError").textContent = "";
+    document.getElementById("emailError").textContent = "";  
     document.getElementById("passwordError").textContent = "";
     document.getElementById("confirmpasswordError").textContent = "";
 
