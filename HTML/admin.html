@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+   <link rel="stylesheet" href="/CSS/admin.css">"
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenu sur la page d'accueil Admin </h1>
+    </header>
+    <form id="FormInscription" action="#" method="POST">
+        <h2>Formulaire d'inscription </h2>
+        <input type="text" name="nom" placeholder="Entrez votre nom" required>
+        <input type="text" name="prenom" placeholder="Entrez votre prénom" required>
+        <input type="email" name="email" placeholder="Entrez votre email" required>
+        
+        <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
+        <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe" required>
+        <button type="submit">Ajouter</button>
+    </form>
+    
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+                  <tbody id="userTableBody">
+                <tr>
+                    <td>Nom</td>
+                    <td>Prénom</td>
+                    <td>Email</td>
+                    <td>
+                        <button>
+                             <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                        </button>
+                       
+                            <div class="dropdown">
+                            <button class="options-btn" tabindex="0">
+                                 <i class="fa-solid fa-ellipsis-v"></i>
+                            </button>
+                                <div class="dropdown-content">
+                                      <a href="#" class="modifier">Modifier</a>
+                                      <a href="#" class="supprimer">Supprimer</a>
+                                </div>
+    </div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        </table>
+    </div>
+</body>
+</html>

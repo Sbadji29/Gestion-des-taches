@@ -1,0 +1,179 @@
+
+        body {
+            background: #f4f6f8;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background:#8eb0da;
+            color: #fff;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        
+
+        /* Ajoute dans <style> ou dans /CSS/admin.css */
+@keyframes zoomRotateSlide {
+  0% {
+    transform: scale(0.5) rotate(-20deg) translateY(-50px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1) rotate(10deg) translateY(10px);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.95) rotate(-5deg) translateY(0);
+  }
+  100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+    opacity: 1;
+  }
+  
+}
+header h1 {
+        animation: zoomRotateSlide 1.2s cubic-bezier(.68,-0.55,.27,1.55) both;
+        display: inline-block;
+        background: linear-gradient(90deg, #1976d2, #42a5f5);
+        color: #fff;
+        padding: 0.5em 1.5em;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+        font-size: 2.2em;
+        margin-top: 1em;
+}
+        form {
+            background: #fff;
+            max-width: 500px;
+            margin: 2rem auto 1rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        form input, form select, form button {
+            padding: 0.8rem;
+            border: 1px solid #cfd8dc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        form input:focus, form select:focus {
+            outline: none;
+            border-color: #8eb0da;
+        }
+        form button {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        form button:hover {
+            background: #8eb0da;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        th {
+            background: #f0f4f8;
+            color: black;
+            background: #8eb0da;
+
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  vertical-align: middle;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+.switch input:checked + .slider {
+  background-color: #4caf50;
+}
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Dropdown CSS */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.options-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3em;
+  padding: 0 8px;
+  color: #555;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  min-width: 120px;
+  z-index: 1;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.dropdown-content a:hover {
+  background: #f0f0f0;
+}
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
