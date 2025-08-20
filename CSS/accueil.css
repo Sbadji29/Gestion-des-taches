@@ -99,3 +99,7 @@ input:focus {
 #emailError,#passwordError{
     color:red;
 }
+
+#mot_de_passe{
+    color: black;
+}
