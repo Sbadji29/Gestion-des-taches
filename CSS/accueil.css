@@ -95,3 +95,7 @@ input:focus {
 .image_accueil img{
     width: 200px;
 }
+
+#emailError,#passwordError{
+    color:red;
+}

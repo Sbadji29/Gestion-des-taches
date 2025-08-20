@@ -16,15 +16,18 @@
             <form action="" id="formulaire_connexion">
                 <div id="email_input">
                     <label for="email">Email</label>
-                    <input type="text" name="email">
+                    <input type="text" name="email" id="email">
+                    <small id="emailError" ></small><br>
                 </div>
                 <div id="mdp_input">
                     <label for="mot de passe">Mot de passe</label>
-                    <input type="text" name="mot de passe">
+                    <input type="text" name="mot de passe" id="mot_de_passe">
+                    <small id="passwordError"></small><br>
                 </div>
-                <div class="btn_submit"><button>connecter</button></div>
+                <div class="btn_submit"><button type="submit">connecter</button></div>
             </form>
         </div>
     </div>
+    <script src="../JS/accueil.js"></script>
 </body>
 </html>
