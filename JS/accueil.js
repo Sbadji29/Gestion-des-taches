@@ -10,6 +10,10 @@ const Personne_autoriser=[
     {
         email:"test3@gmail.com",
         mot_de_passe: "passe3"
+    },
+    {
+        email:"ouz@gmail.com",
+        mot_de_passe: "123456"
     }
 ];
 
