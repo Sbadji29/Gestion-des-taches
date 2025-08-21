@@ -13,7 +13,7 @@ header {
 }
         
 
-        /* Ajoute dans <style> ou dans /CSS/admin.css */
+/* Ajoute dans <style> ou dans /CSS/admin.css */
 @keyframes zoomRotateSlide {
   0% {
     transform: scale(0.5) rotate(-20deg) translateY(-50px);
@@ -182,4 +182,28 @@ tr:last-child td {
     font-size: 12px;
     display: block;
     margin-top: 3px;
+}
+
+.btn_admin{
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.btn_admin button{
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-color: #42a5f5;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.btn_admin button:hover {
+    background-color: #1e88e5; /* teinte plus foncée au hover */
+    transform: scale(1.05);    /* léger zoom */
+    transition: all 0.3s ease; /* animation douce */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* ombre au survol */
 }

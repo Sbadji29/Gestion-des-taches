@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/accueil.css">
-    <title>Accueil</title>
+    <title>Creer un compte admin</title>
 </head>
 <body>
     <div class="div_body">
         <div class="image_accueil">
             <img src="../Assets/login_image.png" alt="login image">
         </div>
-        <div class="connectez-vous"><h1>connectez-vous</h1></div>
+        <div class="connectez-vous"><h1>Creer un compte admin</h1></div>
         <div> 
             <form action="" id="formulaire_connexion">
                 <div id="email_input">
@@ -24,7 +24,12 @@
                     <input type="password" name="mot de passe" id="mot_de_passe">
                     <small id="passwordError"></small><br>
                 </div>
-                <div class="btn_submit"><button type="submit">connecter</button></div>
+                <div id="confirm_mdp_input">
+                    <label for="mot de passe">Confirmer votre mot de passe</label>
+                    <input type="password" name="mot de passe" id="mot_de_passe">
+                    <small id="confirmpasswordError"></small><br>
+                </div>
+                <div class="btn_submit"><button type="submit">Valider</button></div>
             </form>
         </div>
     </div>
