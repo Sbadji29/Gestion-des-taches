@@ -1,25 +1,21 @@
 const users = []; // tableau des utilisateurs
 
-// Recuperer le formulaire et le tbody du tableau
 const form = document.getElementById("FormInscription");
 
 const tbody = document.getElementById("userTableBody");
 
-//lien pour si l'evenement envoyer de notre bouton du formulaire est fait on passe à la collecte des informations
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // reset erreurs
     document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
-    // Enregistrer les informations dans les variables
     const nom = form.nom.value.trim();
     const prenom = form.prenom.value.trim();
     const email = form.email.value.trim();
     const password = form.password.value.trim();
     const confirmPassword = form.confirmPassword.value.trim();
 
-    //Variable pour vérifier la validiter des champs
     let isValid = true;
 
     // Vérifs
@@ -37,18 +33,16 @@ form.addEventListener("submit", function (e) {
     } else if (!/\S+@\S+\.\S+/.test(email)) {
         form.email.nextElementSibling.textContent = "Email invalide";
         isValid = false;
-    } 
-    //Pour les enregistrement d'email déja existant
-    else if (users.some(u => u.email === email)) {
+    } else if (users.some(u => u.email === email)) {
         form.email.nextElementSibling.textContent = "Email déjà utilisé";
         isValid = false;
     }
-    //Pour montre que le mot de passe doit avoir minimum 6 caracteres
+
     if (password.length < 6) {
         form.password.nextElementSibling.textContent = "6 caractères minimum";
         isValid = false;
     }
-    //Verifier si les deux mots de passes sont les même
+
     if (confirmPassword !== password) {
         form.confirmPassword.nextElementSibling.textContent = "Mots de passe différents";
         isValid = false;
@@ -56,15 +50,13 @@ form.addEventListener("submit", function (e) {
 
     if (!isValid) return; // on arrête ici si erreur
 
-    // Nouvel utilisateur avec la date actuelle
-    let now = new Date();
-    let date = now.toLocaleDateString("fr-FR"); 
-    let heure = now.toLocaleTimeString("fr-FR"); 
-
-    const newUser = { nom, prenom, email, password, active: true, date, heure };
+    // Nouvel utilisateur
+    const now = new Date();
+    
+    const newUser = { nom, prenom, email, password, active: true };
     users.push(newUser);
 
-    let status = "En cours";
+
     // Création ligne tableau
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -72,7 +64,6 @@ form.addEventListener("submit", function (e) {
       <td>${prenom}</td>
       <td>${email}</td>
       <td>${date}, ${heure}</td>
-      <td class="status-text">${status}</td>
       <td>
         <label class="switch">
           <input type="checkbox" ${newUser.active ? "checked" : ""}>
