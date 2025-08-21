@@ -8,17 +8,37 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    display: flex;
-    flex-direction: row;
 }
 
-.div_body{
+/* --- Conteneur principal --- */
+.div_body {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-/* --- Conteneur du formulaire --- */
-#formulaire_connexion {
+/* --- Image accueil --- */
+.image_accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_accueil img {
+    width: 200px;
+}
+
+/* --- Titre --- */
+.creer_admin h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+/* --- Formulaire --- */
+#formulaire_creer_admin {
     background: rgba(255, 255, 255, 0.15); /* effet verre */
     backdrop-filter: blur(10px);
     padding: 35px;
@@ -26,15 +46,9 @@ body {
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
     width: 350px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* --- Titre --- */
-.connectez-vous h1 {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 25px;
-    font-size: 24px;
-    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* --- Labels et inputs --- */
@@ -48,7 +62,6 @@ label {
 input {
     width: 100%;
     padding: 12px;
-    margin-bottom: 18px;
     border: none;
     border-radius: 10px;
     background: rgba(255,255,255,0.2);
@@ -67,8 +80,16 @@ input:focus {
     box-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
+/* --- Messages d'erreur --- */
+#emailError_creer_admin,
+#passwordError_creer_admin,
+#confirmpasswordError {
+    color: red;
+    font-size: 13px;
+}
+
 /* --- Bouton --- */
-.btn_submit button {
+.btn_submit_creer_admin button {
     width: 100%;
     padding: 12px;
     background: linear-gradient(135deg, #00c6ff, #0072ff);
@@ -78,28 +99,11 @@ input:focus {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
 }
 
-.btn_submit button:hover {
+.btn_submit_creer_admin button:hover {
     transform: scale(1.05);
     background: linear-gradient(135deg, #0072ff, #00c6ff);
-}
-
-.image_accueil{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image_accueil img{
-    width: 200px;
-}
-
-#emailError,#passwordError{
-    color:red;
-}
-
-#mot_de_passe{
-    color: black;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
