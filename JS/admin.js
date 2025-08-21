@@ -1,10 +1,14 @@
 const users = []; // tableau des utilisateurs
 
-  const form = document.getElementById("FormInscription");
-  const tbody = document.getElementById("userTableBody");
+const form = document.getElementById("FormInscription");
 
-  form.addEventListener("submit", function(e){
+const tbody = document.getElementById("userTableBody");
+
+form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // reset erreurs
+    document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
     const nom = form.nom.value.trim();
     const prenom = form.prenom.value.trim();
@@ -12,22 +16,45 @@ const users = []; // tableau des utilisateurs
     const password = form.password.value.trim();
     const confirmPassword = form.confirmPassword.value.trim();
 
-    // Vérifications
-    if(password !== confirmPassword){
-      alert("❌ Les mots de passe ne correspondent pas !");
-      return;
+    let isValid = true;
+
+    // Vérifs
+    if (nom === "") {
+        form.nom.nextElementSibling.textContent = "Nom obligatoire";
+        isValid = false;
+    }
+    if (prenom === "") {
+        form.prenom.nextElementSibling.textContent = "Prénom obligatoire";
+        isValid = false;
+    }
+    if (email === "") {
+        form.email.nextElementSibling.textContent = "Email obligatoire";
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        form.email.nextElementSibling.textContent = "Email invalide";
+        isValid = false;
+    } else if (users.some(u => u.email === email)) {
+        form.email.nextElementSibling.textContent = "Email déjà utilisé";
+        isValid = false;
     }
 
-    if(users.some(u => u.email === email)){
-      alert("❌ Cet email existe déjà !");
-      return;
+    if (password.length < 6) {
+        form.password.nextElementSibling.textContent = "6 caractères minimum";
+        isValid = false;
     }
 
-    // Ajouter dans tableau
+    if (confirmPassword !== password) {
+        form.confirmPassword.nextElementSibling.textContent = "Mots de passe différents";
+        isValid = false;
+    }
+
+    if (!isValid) return; // on arrête ici si erreur
+
+    // Nouvel utilisateur
     const newUser = { nom, prenom, email, password, active: true };
     users.push(newUser);
 
-    // Afficher dans le tableau HTML
+    // Création ligne tableau
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${nom}</td>
@@ -39,9 +66,7 @@ const users = []; // tableau des utilisateurs
           <span class="slider"></span>
         </label>
         <div class="dropdown">
-          <button class="options-btn" tabindex="0">
-            <i class="fa-solid fa-ellipsis-v"></i>
-          </button>
+          <button class="options-btn" tabindex="0">⋮</button>
           <div class="dropdown-content">
             <a href="#" class="modifier">Modifier</a>
             <a href="#" class="supprimer">Supprimer</a>
@@ -50,37 +75,36 @@ const users = []; // tableau des utilisateurs
       </td>
     `;
 
-    // Action supprimer
-    tr.querySelector(".supprimer").addEventListener("click", function(e){
-      e.preventDefault();
-      const verif=confirm("Voulez-vous confirmer la suppression ?");
-      if(verif){
+    // ✅ Supprimer
+    tr.querySelector(".supprimer").addEventListener("click", function (ev) {
+      ev.preventDefault();
+      if (confirm("Voulez-vous confirmer la suppression ?")) {
         tbody.removeChild(tr);
+        const index = users.findIndex((u) => u.email === email);
+        if (index > -1) users.splice(index, 1);
       }
-      const index = users.findIndex(u => u.email === email);
-      if(index > -1) users.splice(index, 1);
     });
 
-    // Action modifier
-    tr.querySelector(".modifier").addEventListener("click", function(e){
-      e.preventDefault();
+    // ✅ Modifier
+    tr.querySelector(".modifier").addEventListener("click", function (ev) {
+      ev.preventDefault();
       form.nom.value = nom;
       form.prenom.value = prenom;
       form.email.value = email;
       form.password.value = "";
       form.confirmPassword.value = "";
       tbody.removeChild(tr);
-      const index = users.findIndex(u => u.email === email);
-      if(index > -1) users.splice(index, 1);
+      const index = users.findIndex((u) => u.email === email);
+      if (index > -1) users.splice(index, 1);
     });
 
-    // Action activer/désactiver
-    tr.querySelector("input[type=checkbox]").addEventListener("change", function(){
+    // ✅ Activer/désactiver
+    tr.querySelector("input[type=checkbox]").addEventListener("change", function () {
       newUser.active = this.checked;
     });
 
     tbody.appendChild(tr);
 
-    // Réinitialiser formulaire
+    // reset form
     form.reset();
   });

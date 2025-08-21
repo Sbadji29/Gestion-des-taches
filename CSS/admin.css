@@ -176,3 +176,10 @@ tr:last-child td {
 .dropdown:focus-within .dropdown-content {
   display: block;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 3px;
+}

@@ -11,16 +11,26 @@
     <header>
         <h1>Bienvenu sur la page d'accueil Admin </h1>
     </header>
-    <form id="FormInscription" action="#" method="POST">
-        <h2>Formulaire d'inscription </h2>
-        <input type="text" name="nom" placeholder="Entrez votre nom" required>
-        <input type="text" name="prenom" placeholder="Entrez votre prénom" required>
-        <input type="email" name="email" placeholder="Entrez votre email" required>
-        
-        <input type="password" name="password" placeholder="Entrez votre mot de passe" required>
-        <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe" required>
-        <button type="submit">Ajouter</button>
-    </form>
+    <form id="FormInscription">
+  <h2>Formulaire d'inscription </h2>
+  <input type="text" name="nom" placeholder="Entrez votre nom">
+  <span class="error"></span>
+
+  <input type="text" name="prenom" placeholder="Entrez votre prénom">
+  <span class="error"></span>
+
+  <input type="email" name="email" placeholder="Entrez votre email">
+  <span class="error"></span>
+
+  <input type="password" name="password" placeholder="Entrez votre mot de passe">
+  <span class="error"></span>
+
+  <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe">
+  <span class="error"></span>
+
+  <button type="submit">Ajouter</button>
+</form>
+
     
     <div class="container">
         <table>
