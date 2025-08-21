@@ -1,7 +1,6 @@
 const users = []; // tableau des utilisateurs
 
 const form = document.getElementById("FormInscription");
-
 const tbody = document.getElementById("userTableBody");
 
 form.addEventListener("submit", function (e) {
@@ -50,20 +49,22 @@ form.addEventListener("submit", function (e) {
 
     if (!isValid) return; // on arrête ici si erreur
 
-    // Nouvel utilisateur
+    // 🔹 Nouvel utilisateur
     const now = new Date();
-    
-    const newUser = { nom, prenom, email, password, active: true };
+    const date = now.toLocaleDateString("fr-FR"); // ex : 21/08/2025
+    const heure = now.toLocaleTimeString("fr-FR"); // ex : 09:35:12
+
+    const newUser = { nom, prenom, email, password, active: false, date, heure };
     users.push(newUser);
 
-
-    // Création ligne tableau
+    // 🔹 Création ligne tableau
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${nom}</td>
       <td>${prenom}</td>
       <td>${email}</td>
       <td>${date}, ${heure}</td>
+      <td class="status-text">${newUser.active ? "Validé" : "En cours"}</td>
       <td>
         <label class="switch">
           <input type="checkbox" ${newUser.active ? "checked" : ""}>
@@ -79,19 +80,21 @@ form.addEventListener("submit", function (e) {
       </td>
     `;
 
-    // Récupérer le checkbox et le texte du statut
-const checkbox = tr.querySelector("input[type=checkbox]");
-const statusText = tr.querySelector(".status-text");
+    // 🔹 Switch statut
+    const checkbox = tr.querySelector("input[type=checkbox]");
+    const statusText = tr.querySelector(".status-text");
 
-// Écouter le changement du switch
-checkbox.addEventListener("change", function () {
-  if (checkbox.checked) {
-    statusText.textContent = "Validé";
-  } else {
-    statusText.textContent = "En cours";
-  }
-});
-    // ✅ Supprimer
+    checkbox.addEventListener("change", function () {
+      if (checkbox.checked) {
+        statusText.textContent = "Validé";
+        newUser.active = true;
+      } else {
+        statusText.textContent = "En cours";
+        newUser.active = false;
+      }
+    });
+
+    // 🔹 Supprimer
     tr.querySelector(".supprimer").addEventListener("click", function (ev) {
       ev.preventDefault();
       if (confirm("Voulez-vous confirmer la suppression ?")) {
@@ -101,7 +104,7 @@ checkbox.addEventListener("change", function () {
       }
     });
 
-    // ✅ Modifier
+    // 🔹 Modifier
     tr.querySelector(".modifier").addEventListener("click", function (ev) {
       ev.preventDefault();
       form.nom.value = nom;
@@ -114,16 +117,10 @@ checkbox.addEventListener("change", function () {
       if (index > -1) users.splice(index, 1);
     });
 
-    // ✅ Activer/désactiver
-    tr.querySelector("input[type=checkbox]").addEventListener("change", function () {
-      newUser.active = this.checked;
-    });
-
     tbody.appendChild(tr);
 
     // reset form
     form.reset();
 });
 
-
-const creer_admin= document.getElementById("creer_admin");
+const creer_admin = document.getElementById("creer_admin");
