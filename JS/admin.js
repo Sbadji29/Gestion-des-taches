@@ -51,6 +51,8 @@ form.addEventListener("submit", function (e) {
     if (!isValid) return; // on arrête ici si erreur
 
     // Nouvel utilisateur
+    const now = new Date();
+    
     const newUser = { nom, prenom, email, password, active: true };
     users.push(newUser);
 
