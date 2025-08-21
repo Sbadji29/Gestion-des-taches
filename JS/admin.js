@@ -64,7 +64,7 @@ form.addEventListener("submit", function (e) {
     const newUser = { nom, prenom, email, password, active: true, date, heure };
     users.push(newUser);
 
-
+    let status = "En cours";
     // Création ligne tableau
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -72,6 +72,7 @@ form.addEventListener("submit", function (e) {
       <td>${prenom}</td>
       <td>${email}</td>
       <td>${date}, ${heure}</td>
+      <td class="status-text">${status}</td>
       <td>
         <label class="switch">
           <input type="checkbox" ${newUser.active ? "checked" : ""}>
@@ -87,6 +88,18 @@ form.addEventListener("submit", function (e) {
       </td>
     `;
 
+    // Récupérer le checkbox et le texte du statut
+const checkbox = tr.querySelector("input[type=checkbox]");
+const statusText = tr.querySelector(".status-text");
+
+// Écouter le changement du switch
+checkbox.addEventListener("change", function () {
+  if (checkbox.checked) {
+    statusText.textContent = "Validé";
+  } else {
+    statusText.textContent = "En cours";
+  }
+});
     // ✅ Supprimer
     tr.querySelector(".supprimer").addEventListener("click", function (ev) {
       ev.preventDefault();
