@@ -14,25 +14,46 @@
     <!-- on a le bouton de création de compte admin  -->
     <div class="btn_admin"><button id="creer_admin">Créer un compte admin</button></div>
     <!-- Formulaire pour enregistrer un membre   -->
-    <form id="FormInscription">
-        <h2>Formulaire d'inscription </h2>
-        <input type="text" name="nom" placeholder="Entrez votre nom">
+    <form id="FormInscription" action="#" method="POST">
+    <h2>Formulaire d'inscription </h2>
+    <div class="input-group">
+        <label>
+            <i class="fa-solid fa-user"></i> Nom
+        </label>
+        <input type="text" name="nom" placeholder="Entrez votre nom" >
+        <span class="error" ></span>
+    </div>
+    <div class="input-group">
+        <label>
+            <i class="fa-solid fa-user"></i> Prénom
+        </label>
+        <input type="text" name="prenom" placeholder="Entrez votre prénom" >
+        <span class="error" ></span>
+    </div>
+    <div class="input-group">
+        <label>
+            <i class="fa-solid fa-envelope"></i> Email
+        </label>
+        <input type="email" name="email" placeholder="Entrez votre email" >
+        <span class="error" ></span>
+    </div>
+    <div class="input-group">
+        <label>
+            <i class="fa-solid fa-lock"></i> Mot de passe
+        </label>
+        <input type="password" name="password" placeholder="Entrez votre mot de passe" >
+        <small class="password-info">Le mot de passe doit contenir au moins 6 caractères.</small>
+        <span class="error" ></span>
+    </div>
+    <div class="input-group">
+        <label>
+            <i class="fa-solid fa-lock"></i> Confirmation
+        </label>
+        <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe" ù>
         <span class="error"></span>
-
-        <input type="text" name="prenom" placeholder="Entrez votre prénom">
-        <span class="error"></span>
-
-        <input type="email" name="email" placeholder="Entrez votre email">
-        <span class="error"></span>
-
-        <input type="password" name="password" placeholder="Entrez votre mot de passe">
-        <span class="error"></span>
-
-        <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe">
-        <span class="error"></span>
-        <!-- Bouton pour envoyer les informations -->
-        <button type="submit">Ajouter</button>
-    </form>
+    </div>
+    <button type="submit">Ajouter</button>
+</form>
 
     <!-- Table pour afficher les utilisateurs -->
     <div class="container">

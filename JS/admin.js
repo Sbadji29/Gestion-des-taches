@@ -105,17 +105,28 @@ form.addEventListener("submit", function (e) {
     });
 
     // 🔹 Modifier
-    tr.querySelector(".modifier").addEventListener("click", function (ev) {
-      ev.preventDefault();
-      form.nom.value = nom;
-      form.prenom.value = prenom;
-      form.email.value = email;
-      form.password.value = "";
-      form.confirmPassword.value = "";
-      tbody.removeChild(tr);
-      const index = users.findIndex((u) => u.email === email);
-      if (index > -1) users.splice(index, 1);
-    });
+   tr.querySelector(".modifier").addEventListener("click", function (ev) {
+  ev.preventDefault();
+  // On récupère l'email de la ligne
+  const emailLigne = tr.children[2].textContent;
+  // On retrouve l'utilisateur correspondant
+  const user = users.find(u => u.email === emailLigne);
+  // Demander l'ancien mot de passe
+  const ancien = prompt("Veuillez saisir l'ancien mot de passe pour modifier cet utilisateur :");
+  if (user && ancien === user.password) {
+    form.nom.value = user.nom;
+    form.prenom.value = user.prenom;
+    form.email.value = user.email;
+    form.password.value = "";
+    form.confirmPassword.value = "";
+
+    tbody.removeChild(tr);
+    const index = users.findIndex((u) => u.email === user.email);
+    if (index > -1) users.splice(index, 1);
+  } else {
+    alert("Le mot de passe saisi n'est pas correct !");
+  }
+});
 
     tbody.appendChild(tr);
 

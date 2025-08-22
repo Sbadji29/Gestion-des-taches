@@ -15,7 +15,16 @@ const Personne_autoriser=[
     {
         email:"test@gmail.com",
         mot_de_passe: "passe0"
+    },
+    {
+      email:"fatou@gmail.com",
+      mot_de_passe: "passe4"
+    },
+    {
+      email:"pape@gmail.com",
+      mot_de_passe: "123456"
     }
+
 ];
 
 //lien pour si l'evenement envoyer de notre bouton du formulaire est fait on passe à la collecte des informations

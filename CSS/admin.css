@@ -1,106 +1,128 @@
-
+/*  Style global de la page */
 body {
-    background: #f4f6f8;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background: #f4f6f8; /* Couleur de fond douce et neutre */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Police moderne et lisible */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les espacements internes */
 }
-header {
-    background:#8eb0da;
-    color: #fff;
-    padding: 2rem 0 1rem 0;
-    text-align: center;
-}
-        
 
-/* Ajoute dans <style> ou dans /CSS/admin.css */
+/*  En-tête principal */
+header {
+    background: #8eb0da; /* Fond bleu clair */
+    color: #fff; /* Texte blanc */
+    padding: 2rem 0 1rem 0; /* Espacement haut/bas */
+    text-align: center; /* Centrage du contenu */
+}
+
+/* Animation personnalisée pour le titre */
 @keyframes zoomRotateSlide {
   0% {
-    transform: scale(0.5) rotate(-20deg) translateY(-50px);
-    opacity: 0;
+    transform: scale(0.5) rotate(-20deg) translateY(-50px); /* Départ petit, incliné, déplacé vers le haut */
+    opacity: 0; /* Invisible */
   }
   60% {
-    transform: scale(1.1) rotate(10deg) translateY(10px);
-    opacity: 1;
+    transform: scale(1.1) rotate(10deg) translateY(10px); /* Zoom + inclinaison inverse */
+    opacity: 1; /* Apparition */
   }
   80% {
-    transform: scale(0.95) rotate(-5deg) translateY(0);
+    transform: scale(0.95) rotate(-5deg) translateY(0); /* Stabilisation */
   }
   100% {
-    transform: scale(1) rotate(0deg) translateY(0);
+    transform: scale(1) rotate(0deg) translateY(0); /* Position finale normale */
     opacity: 1;
   }
-  
 }
+
+/* Titre animé dans le header */
 header h1 {
-        animation: zoomRotateSlide 1.2s cubic-bezier(.68,-0.55,.27,1.55) both;
-        display: inline-block;
-        background: linear-gradient(90deg, #1976d2, #42a5f5);
-        color: #fff;
-        padding: 0.5em 1.5em;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
-        font-size: 2.2em;
-        margin-top: 1em;
+    animation: zoomRotateSlide 1.2s cubic-bezier(.68,-0.55,.27,1.55) both; /* Animation fluide */
+    display: inline-block; /* Permet le padding et les effets */
+    background: linear-gradient(90deg, #1976d2, #42a5f5); /* Dégradé horizontal bleu */
+    color: #fff; /* Texte blanc */
+    padding: 0.5em 1.5em; /* Espacement interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15); /* Ombre légère */
+    font-size: 2.2em; /* Taille du texte */
+    margin-top: 1em; /* Espacement au-dessus */
 }
+
+/* Formulaire */
 form {
-    background: #fff;
-    max-width: 500px;
-    margin: 2rem auto 1rem auto;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    background: #fff; /* Fond blanc */
+    max-width: 500px; /* Largeur maximale */
+    margin: 2rem auto 1rem auto; /* Centré horizontalement + marges haut/bas */
+    padding: 2rem; /* Espacement interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Ombre douce */
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: column; /* Empile les éléments verticalement */
+    gap: 1rem; /* Espacement entre les éléments */
 }
+
+/*  Champs du formulaire */
 form input, form select, form button {
-    padding: 0.8rem;
-    border: 1px solid #cfd8dc;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 0.8rem; /* Espacement interne */
+    border: 2px solid #cfd8dc; /* Bord gris clair */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 1rem; /* Taille du texte */
 }
+
+/* Focus sur les champs */
 form input:focus, form select:focus {
-    outline: none;
-    border-color: #8eb0da;
+    outline: none; /* Supprime le contour bleu par défaut */
+    border-color: #8eb0da; /* Bord bleu clair au focus */
 }
+
+/*  Bouton du formulaire */
 form button {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
+    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Dégradé bleu vif */
+    color: #fff; /* Texte blanc */
+    border: none; /* Supprime le bord */
+    cursor: pointer; /* Curseur main */
+    font-weight: bold; /* Texte en gras */
+    transition: background 0.2s; /* Animation douce au survol */
 }
+
+/*  Hover sur le bouton */
 form button:hover {
-    background: #8eb0da;
+    background: #8eb0da; /* Change la couleur au survol */
 }
+
+/*  Conteneur principal */
 .container {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 2rem;
+    max-width: 900px; /* Largeur maximale */
+    margin: 2rem auto; /* Centré horizontalement */
+    background: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* Ombre douce */
+    padding: 2rem; /* Espacement interne */
 }
+
+/* Tableau */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Prend toute la largeur */
+    border-collapse: collapse; /* Supprime les espaces entre les cellules */
     margin-top: 1rem;
 }
+
 th, td {
-    padding: 0.8rem;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 0.8rem; /* Espacement interne */
+    border-bottom: 1px solid #e0e0e0; /* Ligne de séparation grise */
     text-align: left;
 }
+
 th {
-    background: #f0f4f8;
+    background: #f0f4f8; /* Fond gris clair */
     color: black;
-    background: #8eb0
+    /*  Correction : la ligne suivante est incomplète */
+    /* background: #8eb0; --> à remplacer ou supprimer */
 }
+
 tr:last-child td {
-    border-bottom: none;
+    border-bottom: none; /* Supprime la ligne du bas pour la dernière ligne */
 }
+
+/*  Switch toggle */
 .switch {
   position: relative;
   display: inline-block;
@@ -108,19 +130,22 @@ tr:last-child td {
   height: 24px;
   vertical-align: middle;
 }
+
 .switch input {
-  opacity: 0;
+  opacity: 0; /* Cache l'input natif */
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
+  background-color: #ccc; /* Fond gris par défaut */
   transition: .4s;
   border-radius: 24px;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -132,18 +157,21 @@ tr:last-child td {
   transition: .4s;
   border-radius: 50%;
 }
+
 .switch input:checked + .slider {
-  background-color: #4caf50;
-}
-.switch input:checked + .slider:before {
-  transform: translateX(20px);
+  background-color: #4caf50; /* Fond vert quand activé */
 }
 
-/* Dropdown CSS */
+.switch input:checked + .slider:before {
+  transform: translateX(20px); /* Déplace le bouton blanc vers la droite */
+}
+
+/* 📂Menu déroulant (dropdown) */
 .dropdown {
   display: inline-block;
   position: relative;
 }
+
 .options-btn {
   background: none;
   border: none;
@@ -152,6 +180,7 @@ tr:last-child td {
   padding: 0 8px;
   color: #555;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -163,6 +192,7 @@ tr:last-child td {
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
+
 .dropdown-content a {
   display: block;
   padding: 10px 16px;
@@ -170,13 +200,16 @@ tr:last-child td {
   text-decoration: none;
   transition: background 0.2s;
 }
+
 .dropdown-content a:hover {
   background: #f0f0f0;
 }
+
 .dropdown:focus-within .dropdown-content {
-  display: block;
+  display: block; /* Affiche le menu quand le bouton est focus */
 }
 
+/*  Message d’erreur */
 .error {
     color: red;
     font-size: 12px;
@@ -184,14 +217,15 @@ tr:last-child td {
     margin-top: 3px;
 }
 
-.btn_admin{
+/*  Bouton administrateur */
+.btn_admin {
   display: flex;
-  justify-content: end;
+  justify-content: end; /* Aligne le bouton à droite */
   margin-top: 10px;
   margin-right: 5px;
 }
 
-.btn_admin button{
+.btn_admin button {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid white;
@@ -202,8 +236,27 @@ tr:last-child td {
 }
 
 .btn_admin button:hover {
-    background-color: #1e88e5; /* teinte plus foncée au hover */
-    transform: scale(1.05);    /* léger zoom */
-    transition: all 0.3s ease; /* animation douce */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* ombre au survol */
+    background-color: #1e88e5; /* Teinte plus foncée au survol */
+    transform: scale(1.05);    /* Zoom léger */
+    transition: all 0.3s ease; /* Animation douce */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Ombre au survol */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.input-group label i {
+    margin-right: 5px;
+}
+.input-group input {
+    display: block;
+    width: 100%;
+}
+.password-info {
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 3px;
+    display: block;
 }
